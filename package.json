@@ -1,0 +1,24 @@
+{
+  "name": "sup-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:web": "npm run dev -w @sup-viewer/web",
+    "dev:server": "npm run dev -w @sup-viewer/server",
+    "build": "npm run build -w @sup-viewer/web && npm run build -w @sup-viewer/server",
+    "test": "npm run test -w @sup-viewer/shared",
+    "typecheck": "npm run typecheck -w @sup-viewer/shared && npm run typecheck -w @sup-viewer/web && npm run typecheck -w @sup-viewer/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

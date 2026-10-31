@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# sup-viewer local data cache
+/apps/server/data
+/apps/web/public/libpgs.worker.js
